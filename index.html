@@ -14,7 +14,7 @@
     <meta property="og:description" content="Круглосуточная эвакуация грузовых автомобилей, тягачей, спецтехники и автобусов в СПб и Ленобласти. Быстро, надежно, профессионально. Работаем с юр. лицами, все виды оплаты.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://avtopromtech.ru">
-    <meta property="og:image" content="https://i.ibb.co/8gQRmZXs/IMG-8176.jpg">
+    <meta property="og:image" content="https://i.ibb.co/5g3nFSpm/avtopromtech-logo.png">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="АВТОПРОМТЕХ">
     
@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="АВТОПРОМТЕХ - Эвакуация грузового транспорта">
     <meta name="twitter:description" content="Круглосуточная эвакуация грузовиков и спецтехники в СПб и области. Работаем с юр. лицами, все виды оплаты.">
-    <meta name="twitter:image" content="https://i.ibb.co/8gQRmZXs/IMG-8176.jpg">
+    <meta name="twitter:image" content="https://i.ibb.co/5g3nFSpm/avtopromtech-logo.png">
     
     <!-- Для Яндекс и Google -->
     <meta name="yandex-verification" content="1abe2aa4695ccdac">
@@ -38,7 +38,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="format-detection" content="telephone=yes">
-    <meta name="theme-color" content="#2c3e50">
+    <meta name="theme-color" content="#27ae60">
     
     <!-- Структурированные данные (Schema.org) -->
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
         "name": "АВТОПРОМТЕХ",
         "description": "Круглосуточная эвакуация грузовых автомобилей, тягачей, спецтехники и автобусов в Санкт-Петербурге и Ленинградской области. Работаем с юридическими лицами, принимаем все виды оплаты",
         "url": "https://avtopromtech.ru",
-        "logo": "https://avtopromtech.ru/logo.png",
-        "image": "https://i.ibb.co/8gQRmZXs/IMG-8176.jpg",
+        "logo": "https://i.ibb.co/5g3nFSpm/avtopromtech-logo.png",
+        "image": "https://i.ibb.co/5g3nFSpm/avtopromtech-logo.png",
         "telephone": "+79219177848",
         "paymentAccepted": "Cash, Credit Card, Bank Transfer",
         "currenciesAccepted": "RUB",
@@ -135,17 +135,22 @@
     
     <!-- Предзагрузка критических ресурсов -->
     <link rel="preconnect" href="https://i.ibb.co">
+    <link rel="preload" as="image" href="https://i.ibb.co/5g3nFSpm/avtopromtech-logo.png">
     <link rel="preload" as="image" href="https://i.ibb.co/8gQRmZXs/IMG-8176.jpg">
-    <link rel="preload" as="image" href="https://i.ibb.co/k6HtkhKN/IMG-8177.jpg">
     
     <style>
         :root {
-            --primary: #2c3e50;
-            --primary-dark: #1a252f;
-            --secondary: #e74c3c;
-            --accent: #f39c12;
-            --light: #ecf0f1;
-            --gray: #95a5a6;
+            --primary: #27ae60;
+            --primary-dark: #219653;
+            --primary-light: #2ecc71;
+            --secondary: #000000;
+            --secondary-dark: #111111;
+            --secondary-light: #333333;
+            --accent: #ffffff;
+            --light: #ffffff;
+            --dark: #000000;
+            --gray: #666666;
+            --light-gray: #f5f5f5;
             --shadow: 0 4px 6px rgba(0,0,0,0.1);
             --shadow-hover: 0 10px 20px rgba(0,0,0,0.15);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -168,8 +173,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.5;
             overflow-x: hidden;
             font-size: clamp(16px, 2vw, 18px);
@@ -185,7 +190,7 @@
         }
 
         header {
-            background: var(--primary);
+            background: var(--light);
             width: 100%;
             box-shadow: var(--shadow);
             position: fixed;
@@ -193,6 +198,7 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--primary);
         }
 
         .header-inner {
@@ -200,13 +206,25 @@
             justify-content: space-between;
             align-items: center;
             padding: clamp(10px, 2vw, 15px) 0;
-            min-height: 70px;
+            min-height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
         .logo-text {
             font-size: clamp(20px, 4vw, 24px);
             font-weight: 700;
-            color: white;
+            color: var(--secondary);
             white-space: nowrap;
         }
 
@@ -214,10 +232,15 @@
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--secondary);
             font-size: 28px;
             cursor: pointer;
             padding: 5px;
+            transition: var(--transition);
+        }
+
+        .nav-toggle:hover {
+            color: var(--primary);
         }
 
         nav ul {
@@ -227,9 +250,9 @@
         }
 
         nav a {
-            color: white;
+            color: var(--secondary);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: var(--transition);
             padding: 5px 0;
             position: relative;
@@ -238,15 +261,34 @@
 
         nav a:hover,
         nav a.active {
-            color: var(--accent);
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
         }
 
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9));
-            padding: clamp(60px, 15vw, 120px) 0 clamp(60px, 10vw, 100px);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.ibb.co/8gQRmZXs/IMG-8176.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: clamp(80px, 15vw, 140px) 0 clamp(60px, 10vw, 100px);
             text-align: center;
-            color: white;
-            margin-top: 70px;
+            color: var(--light);
+            margin-top: 80px;
         }
 
         .hero h1 {
@@ -254,12 +296,13 @@
             margin-bottom: clamp(15px, 3vw, 20px);
             font-weight: 700;
             line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             margin-bottom: clamp(30px, 5vw, 40px);
-            color: var(--light);
+            color: #f0f0f0;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -277,36 +320,43 @@
         .btn {
             display: inline-block;
             padding: clamp(12px, 3vw, 15px) clamp(25px, 5vw, 35px);
-            background: var(--secondary);
-            color: white;
+            background: var(--primary);
+            color: var(--light);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             transition: var(--transition);
-            border: none;
+            border: 2px solid var(--primary);
             cursor: pointer;
             font-size: clamp(1rem, 2vw, 1.1rem);
             text-align: center;
             min-width: 260px;
             max-width: 100%;
             touch-action: manipulation;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
         }
 
         .btn:hover,
         .btn:active {
-            background: #c0392b;
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
         }
 
         .btn.secondary {
-            background: var(--primary);
-            border: 2px solid var(--secondary);
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--light);
+        }
+
+        .btn.secondary:hover {
+            background: var(--light);
+            color: var(--primary);
         }
 
         .services {
             padding: clamp(50px, 10vw, 80px) 0;
-            background: white;
+            background: var(--light);
         }
 
         .section-title {
@@ -317,7 +367,7 @@
         .section-title h2 {
             font-size: clamp(1.8rem, 4vw, 2.2rem);
             margin-bottom: clamp(10px, 2vw, 15px);
-            color: var(--primary);
+            color: var(--secondary);
             position: relative;
             display: inline-block;
         }
@@ -330,7 +380,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: var(--secondary);
+            background: var(--primary);
             border-radius: 2px;
         }
 
@@ -342,12 +392,12 @@
         }
 
         .service-card {
-            background: white;
+            background: var(--light);
             border-radius: 12px;
             padding: clamp(20px, 4vw, 30px);
             text-align: center;
             transition: var(--transition);
-            border: 1px solid #e9ecef;
+            border: 2px solid var(--light-gray);
             box-shadow: var(--shadow);
             cursor: pointer;
             user-select: none;
@@ -356,13 +406,15 @@
             flex-direction: column;
             height: 100%;
             min-height: 250px;
+            position: relative;
+            overflow: hidden;
         }
 
         .service-card:hover,
         .service-card:active {
             transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
-            border-color: var(--secondary);
+            border-color: var(--primary);
         }
 
         .service-icon {
@@ -375,27 +427,27 @@
             justify-content: center;
             margin: 0 auto clamp(15px, 3vw, 20px);
             font-size: clamp(24px, 5vw, 30px);
-            color: white;
+            color: var(--light);
             flex-shrink: 0;
         }
 
         .service-card h3 {
             font-size: clamp(1.2rem, 3vw, 1.3rem);
             margin-bottom: clamp(10px, 2vw, 15px);
-            color: var(--primary);
+            color: var(--secondary);
             line-height: 1.3;
         }
 
         .service-card p {
             font-size: clamp(0.9rem, 2vw, 1rem);
-            color: #666;
+            color: var(--gray);
             line-height: 1.5;
             flex-grow: 1;
         }
 
         .clients {
             padding: clamp(50px, 10vw, 80px) 0;
-            background: #f8f9fa;
+            background: var(--light-gray);
         }
 
         .clients-grid {
@@ -407,7 +459,7 @@
         }
 
         .client-logo {
-            background: white;
+            background: var(--light);
             border-radius: 12px;
             padding: clamp(15px, 3vw, 25px) clamp(15px, 3vw, 20px);
             display: flex;
@@ -415,7 +467,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: var(--shadow);
-            border: 1px solid #e9ecef;
+            border: 2px solid var(--light-gray);
             transition: var(--transition);
             height: clamp(120px, 20vw, 140px);
             width: 100%;
@@ -427,6 +479,7 @@
         .client-logo:active {
             transform: translateY(-3px);
             box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
         }
 
         .client-logo img {
@@ -439,14 +492,14 @@
 
         .client-name {
             font-size: clamp(12px, 2vw, 14px);
-            color: var(--primary);
+            color: var(--secondary);
             font-weight: 500;
             margin-top: 5px;
         }
 
         .about {
             padding: clamp(50px, 10vw, 80px) 0;
-            background: white;
+            background: var(--light);
         }
 
         .about-content {
@@ -465,7 +518,7 @@
         .about-text h2 {
             font-size: clamp(1.8rem, 4vw, 2.2rem);
             margin-bottom: clamp(15px, 3vw, 20px);
-            color: var(--primary);
+            color: var(--secondary);
             line-height: 1.3;
         }
 
@@ -473,6 +526,7 @@
             margin-bottom: clamp(12px, 2vw, 15px);
             font-size: clamp(1rem, 2vw, 1.1rem);
             line-height: 1.6;
+            color: var(--gray);
         }
 
         .image-slider {
@@ -483,6 +537,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-hover);
             -webkit-touch-callout: none;
+            border: 3px solid var(--primary);
         }
 
         .slider-container {
@@ -537,8 +592,8 @@
 
         .slider-prev,
         .slider-next {
-            background: rgba(44, 62, 80, 0.85);
-            color: white;
+            background: rgba(39, 174, 96, 0.9);
+            color: var(--light);
             border: none;
             width: clamp(40px, 8vw, 50px);
             height: clamp(40px, 8vw, 50px);
@@ -552,13 +607,14 @@
             touch-action: manipulation;
             -webkit-appearance: none;
             appearance: none;
+            border: 2px solid var(--light);
         }
 
         .slider-prev:hover,
         .slider-next:hover,
         .slider-prev:active,
         .slider-next:active {
-            background: var(--secondary);
+            background: var(--primary-dark);
             transform: scale(1.1);
         }
 
@@ -575,7 +631,7 @@
             height: clamp(8px, 2vw, 10px);
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.5);
-            border: none;
+            border: 2px solid var(--primary);
             cursor: pointer;
             transition: var(--transition);
             flex-shrink: 0;
@@ -585,42 +641,57 @@
         }
 
         .slider-dot.active {
-            background: var(--secondary);
+            background: var(--primary);
             transform: scale(1.3);
+            border-color: var(--light);
         }
 
         .slider-counter {
             position: absolute;
             top: clamp(15px, 3vw, 20px);
             right: clamp(15px, 3vw, 20px);
-            background: rgba(44, 62, 80, 0.85);
-            color: white;
+            background: rgba(39, 174, 96, 0.9);
+            color: var(--light);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: clamp(12px, 2vw, 14px);
             font-weight: 600;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
+            border: 2px solid var(--light);
         }
 
         .contact {
             padding: clamp(50px, 10vw, 80px) 0;
-            background: #f8f9fa;
+            background: var(--light-gray);
         }
 
         .contact-info {
-            background: white;
+            background: var(--light);
             border-radius: 16px;
             padding: clamp(25px, 5vw, 40px);
             box-shadow: var(--shadow);
             max-width: 600px;
             margin: 0 auto;
             width: 100%;
+            border: 3px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
         }
 
         .contact-info h3 {
             font-size: clamp(1.5rem, 4vw, 1.8rem);
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: clamp(20px, 4vw, 30px);
             text-align: center;
             line-height: 1.3;
@@ -629,12 +700,12 @@
         .contact-item {
             margin-bottom: clamp(20px, 4vw, 25px);
             padding-bottom: clamp(20px, 4vw, 25px);
-            border-bottom: 1px solid #eee;
+            border-bottom: 2px solid var(--light-gray);
         }
 
         .contact-details strong {
             display: block;
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 8px;
             font-size: clamp(1rem, 2vw, 1.1rem);
         }
@@ -652,8 +723,8 @@
             justify-content: center;
             gap: 10px;
             padding: clamp(15px, 3vw, 18px);
-            background: var(--secondary);
-            color: white;
+            background: var(--primary);
+            color: var(--light);
             text-decoration: none;
             border-radius: 10px;
             font-weight: 600;
@@ -661,19 +732,21 @@
             font-size: clamp(1rem, 2vw, 1.1rem);
             text-align: center;
             touch-action: manipulation;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
         }
 
         .contact-btn:hover,
         .contact-btn:active {
-            background: #c0392b;
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
         }
 
         footer {
-            background: var(--primary-dark);
+            background: var(--secondary);
             padding: clamp(30px, 6vw, 50px) 0 20px;
-            color: white;
+            color: var(--light);
+            border-top: 3px solid var(--primary);
         }
 
         .footer-content {
@@ -693,15 +766,34 @@
             }
         }
 
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-logo-container {
+                justify-content: flex-start;
+            }
+        }
+
+        .footer-logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
         .footer-logo {
             font-size: clamp(24px, 5vw, 28px);
             font-weight: 700;
-            margin-bottom: 10px;
-            color: white;
+            color: var(--light);
         }
 
         .footer-about p {
-            color: #bdc3c7;
+            color: #cccccc;
             max-width: 400px;
             font-size: clamp(0.9rem, 2vw, 1rem);
             line-height: 1.5;
@@ -711,7 +803,7 @@
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: #95a5a6;
+            color: #999999;
             font-size: clamp(12px, 2vw, 14px);
         }
 
@@ -739,7 +831,7 @@
         }
 
         .modal {
-            background: white;
+            background: var(--light);
             border-radius: 16px;
             width: 100%;
             max-width: 600px;
@@ -749,6 +841,18 @@
             transition: transform 0.3s ease;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             -webkit-overflow-scrolling: touch;
+            border: 3px solid var(--primary);
+            position: relative;
+        }
+
+        .modal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
         }
 
         .modal-overlay.active .modal {
@@ -757,19 +861,19 @@
 
         .modal-header {
             padding: 20px;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 2px solid var(--light-gray);
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            background: white;
+            background: var(--light);
             z-index: 1;
         }
 
         .modal-header h3 {
             font-size: clamp(1.3rem, 3vw, 1.5rem);
-            color: var(--primary);
+            color: var(--secondary);
             margin: 0;
             line-height: 1.3;
         }
@@ -783,6 +887,12 @@
             padding: 5px;
             line-height: 1;
             touch-action: manipulation;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+            transform: scale(1.1);
         }
 
         .modal-body {
@@ -799,20 +909,20 @@
             justify-content: center;
             margin: 0 auto 20px;
             font-size: 35px;
-            color: white;
+            color: var(--light);
         }
 
         .modal-description {
             margin-bottom: 20px;
             line-height: 1.6;
-            color: #555;
+            color: var(--gray);
             font-size: clamp(0.95rem, 2vw, 1rem);
         }
 
         .modal-features h4 {
             font-size: clamp(1.1rem, 2.5vw, 1.2rem);
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .modal-features ul {
@@ -832,23 +942,57 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--secondary);
+            color: var(--primary);
             font-weight: bold;
         }
 
         .modal-footer {
             padding: 20px;
-            border-top: 1px solid #e9ecef;
+            border-top: 2px solid var(--light-gray);
             text-align: center;
             position: sticky;
             bottom: 0;
-            background: white;
+            background: var(--light);
         }
 
         .modal-phone-buttons {
             display: flex;
             flex-direction: column;
             gap: 10px;
+        }
+        
+        /* ИСПРАВЛЕНИЕ: Кнопки в модальном окне */
+        .modal-phone-buttons .btn {
+            min-width: 100%;
+            border: none;
+            font-weight: 600;
+            padding: 15px;
+            margin: 0;
+        }
+        
+        .modal-phone-buttons .btn.primary {
+            background: var(--primary);
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+        
+        .modal-phone-buttons .btn.secondary {
+            background: var(--secondary);
+            color: var(--light);
+            border: 2px solid var(--secondary);
+        }
+        
+        .modal-phone-buttons .btn.secondary:hover {
+            background: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+        }
+        
+        /* ИСПРАВЛЕНИЕ: Текст под кнопками в модальном окне */
+        .modal-footer p {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: var(--gray) !important;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -862,11 +1006,13 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--primary);
+                background: var(--light);
                 flex-direction: column;
                 padding: 20px;
                 box-shadow: var(--shadow);
                 gap: 15px;
+                z-index: 1000;
+                border-top: 3px solid var(--primary);
             }
             
             nav ul.active {
@@ -897,11 +1043,15 @@
             .slider-dots {
                 max-width: 80%;
             }
+            
+            .footer-logo-img {
+                height: 40px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero {
-                padding-top: 90px;
+                padding-top: 100px;
             }
             
             .phone-buttons {
@@ -922,6 +1072,10 @@
             
             .slider-controls {
                 flex-wrap: wrap;
+            }
+            
+            .logo-img {
+                height: 40px;
             }
         }
 
@@ -954,10 +1108,16 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5S6SQ2J"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <header>
         <div class="container">
             <div class="header-inner">
                 <div class="logo">
+                    <img src="https://i.ibb.co/5g3nFSpm/avtopromtech-logo.png" alt="АВТОПРОМТЕХ логотип" class="logo-img" loading="lazy">
                     <div class="logo-text">АВТОПРОМТЕХ</div>
                 </div>
                 <button class="nav-toggle" id="navToggle">☰</button>
@@ -1185,7 +1345,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <div class="footer-logo">АВТОПРОМТЕХ</div>
+                    <div class="footer-logo-container">
+                        <!-- ТЕПЕРЬ ТОТ ЖЕ ЛОГОТИП, ЧТО И В ШАПКЕ -->
+                        <img src="https://i.ibb.co/5g3nFSpm/avtopromtech-logo.png" alt="АВТОПРОМТЕХ логотип" class="footer-logo-img" loading="lazy">
+                        <div class="footer-logo">АВТОПРОМТЕХ</div>
+                    </div>
                     <p>Круглосуточная эвакуация грузового транспорта и спецтехники в Санкт-Петербурге и Ленинградской области. Эвакуация грузовиков, тягачей, автобусов и спецтехники 24/7. Работаем с юридическими лицами, принимаем все виды оплаты.</p>
                 </div>
             </div>
@@ -1211,13 +1375,35 @@
             </div>
             <div class="modal-footer">
                 <div class="modal-phone-buttons">
-                    <a href="tel:+79219177848" class="btn primary">Заказать эвакуатор: +7 (921) 917-78-48 (основной)</a>
-                    <a href="tel:+79219984114" class="btn secondary">Заказать эвакуатор: +7 (921) 998-41-14 (дополнительный)</a>
-                    <p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: #666;">Работаем с юр. лицами, все виды оплаты</p>
+                    <a href="tel:+79219177848" class="btn primary">📞 Заказать эвакуатор: +7 (921) 917-78-48</a>
+                    <a href="tel:+79219984114" class="btn secondary">📞 Дополнительный: +7 (921) 998-41-14</a>
+                    <p>Работаем с юридическими лицами, принимаем все виды оплаты</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K5S6SQ2J');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106107393', 'ym');
+
+        ym(106107393, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106107393" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -1493,31 +1679,6 @@
                 e.preventDefault();
             }
         }, false);
-        
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXX');
     </script>
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-        
-        ym(XXXXXXX, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
 </body>
 </html>

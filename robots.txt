@@ -1,0 +1,59 @@
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /readme.html
+Disallow: /license.txt
+Disallow: /search/
+Disallow: /?s=
+Disallow: /*/feed/
+Disallow: /*/feed/rss/
+Disallow: /*/*/feed/
+Disallow: /*/*/feed/rss/
+Disallow: /wp-login.php
+Disallow: /wp-signup.php
+
+Allow: /wp-content/uploads/
+Allow: /wp-content/themes/*.css
+Allow: /wp-content/themes/*.js
+Allow: /wp-content/plugins/*.css
+Allow: /wp-content/plugins/*.js
+
+Sitemap: https://autopromteh.ru/sitemap.xml
+Sitemap: https://autopromteh.ru/sitemap_index.xml
+
+User-agent: Googlebot
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.woff
+Allow: /*.woff2
+Crawl-delay: 1
+
+User-agent: Yandex
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-login.php
+Clean-param: utm_source&utm_medium&utm_campaign / 
+Crawl-delay: 2
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

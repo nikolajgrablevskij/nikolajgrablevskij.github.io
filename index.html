@@ -1140,7 +1140,17 @@
         .slider-slide {
             background-color: #f0f0f0;
         }
-    </style>
+    
+        .legal-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;margin:20px 0 0}
+        .legal-links a{color:#d8f5e3;text-decoration:underline;text-underline-offset:3px;font-size:14px}
+        .legal-links a:hover{color:#fff}
+        .cookie-banner{position:fixed;z-index:9999;left:16px;right:16px;bottom:16px;max-width:900px;margin:auto;background:#fff;color:#263238;padding:20px;border-radius:14px;box-shadow:0 8px 40px rgba(0,0,0,.28);display:none;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+        .cookie-banner p{margin:0;flex:1;min-width:220px;font-size:14px;line-height:1.5}
+        .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+        .cookie-actions button{border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:600;cursor:pointer}
+        .cookie-accept{background:#27ae60;color:#fff}.cookie-reject{background:#eef1f3;color:#263238}
+        .cookie-banner a{color:#167a42}
+</style>
 </head>
 <body>
   
@@ -1392,6 +1402,11 @@
             </div>
             <div class="copyright">
                 &copy; 2026 ООО "АВТОПРОМТЕХ". Все права защищены.
+                <nav class="legal-links" aria-label="Правовая информация">
+                    <a href="privacy.html">Политика обработки персональных данных</a>
+                    <a href="offer.html">Условия оказания услуг / публичная оферта</a>
+                    <a href="privacy.html#cookies">Cookies и аналитика</a>
+                </nav>
             </div>
         </div>
     </footer>
@@ -1421,25 +1436,27 @@
     </div>
 
    
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K5S6SQ2J');</script>
-    
-    
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106107393', 'ym');
-
-        ym(106107393, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    <script>
+      // Аналитические счётчики запускаются только после явного согласия посетителя.
+      function enableAnalytics(){
+        if(window.__analyticsLoaded) return;
+        window.__analyticsLoaded=true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-K5S6SQ2J');
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106107393','ym');
+        ym(106107393,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",accurateTrackBounce:true,trackLinks:true});
+      }
+      document.addEventListener('DOMContentLoaded',function(){
+        var banner=document.getElementById('cookieBanner');
+        var saved=null; try{saved=localStorage.getItem('avpt-analytics-consent')}catch(e){}
+        if(saved==='yes') enableAnalytics(); else if(saved!=='no' && banner) banner.style.display='flex';
+        document.getElementById('cookieAccept')?.addEventListener('click',function(){try{localStorage.setItem('avpt-analytics-consent','yes')}catch(e){} if(banner)banner.style.display='none';enableAnalytics();});
+        document.getElementById('cookieReject')?.addEventListener('click',function(){try{localStorage.setItem('avpt-analytics-consent','no')}catch(e){} if(banner)banner.style.display='none';});
+      });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/106107393" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Настройки cookies">
+      <p>Мы используем технические cookies и, с вашего согласия, Яндекс Метрику и Google Tag Manager для анализа посещаемости. Подробнее — в <a href="privacy.html#cookies">политике обработки персональных данных</a>. Вы можете принять или отклонить аналитические cookies.</p>
+      <div class="cookie-actions"><button type="button" class="cookie-accept" id="cookieAccept">Разрешить аналитику</button><button type="button" class="cookie-reject" id="cookieReject">Отклонить</button></div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
